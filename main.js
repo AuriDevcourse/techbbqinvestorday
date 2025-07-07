@@ -19,4 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById(sectionId).classList.add('active');
     });
   });
+
+  // Accordion functionality with event delegation for dynamic content
+  document.querySelectorAll('.accordion-list').forEach(list => {
+    list.addEventListener('click', function(e) {
+      const toggle = e.target.closest('.accordion-toggle');
+      if (!toggle) return;
+      const item = toggle.closest('.accordion-item');
+      // Toggle only the clicked item, allow multiple open
+      item.classList.toggle('active');
+    });
+  });
 });

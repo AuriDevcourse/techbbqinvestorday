@@ -4,6 +4,18 @@ body {
   background: none;
 }
 
+.program-title {
+  font-family: 'Archivo', Arial, sans-serif;
+  font-size: 48px;
+  line-height: 58px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+
 .container {
   display: flex;
   min-height: 100vh;
@@ -15,6 +27,158 @@ body {
   align-items: center;
   flex-direction: row;
 }
+
+/* Accordion Styles */
+.accordion-list {
+  padding: 0;
+  margin: 0 0 1.2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  overflow: visible;
+}
+
+.accordion-item {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #333;
+}
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-toggle {
+  width: 100%;
+  background: none;
+  color: #fff;
+  padding: 18px 24px 18px 18px;
+  margin: 0;
+  font-size: 1.08rem;
+  font-family: 'Archivo', Arial, sans-serif;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.18s;
+  box-shadow: none;
+  letter-spacing: 0.01em;
+}
+.accordion-toggle .accordion-title {
+  padding-left: 4px;
+  flex: 0 1 auto;
+  text-align: left;
+}
+
+.accordion-toggle:after {
+  display: none !important;
+}
+.accordion-toggle:before {
+  content: '\25BA';
+  display: inline-block;
+  position: static;
+  margin-right: 10px;
+  font-size: 0.75em;
+  color: #fff;
+  transition: transform 0.2s;
+}
+.accordion-item.active .accordion-toggle:before {
+  transform: rotate(90deg);
+}
+.accordion-item.active .accordion-toggle,
+.accordion-toggle:focus {
+  background: #232323;
+  color: #fff;
+}
+
+.accordion-content {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  background: #181818;
+  color: #fff;
+  padding: 0 36px;
+  font-size: 1rem;
+  font-family: 'Inter', Arial, sans-serif;
+  border: none;
+  transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1), padding 0.2s;
+}
+.accordion-item.active .accordion-content,
+.accordion-content.active {
+  display: block;
+  padding: 16px 36px 18px 36px !important;
+  max-height: 400px !important;
+}
+
+.accordion-item {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+}
+.accordion-toggle {
+  width: 100%;
+  background: #181818;
+  color: #fff;
+  border-radius: 14px;
+  padding: 16px 22px;
+  margin: 0;
+  font-size: 1rem;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid #232323;
+  letter-spacing: 0.2px;
+  transition: background 0.2s;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.accordion-toggle:after {
+  content: '\25BC';
+  margin-left: 10px;
+  font-size: 1.1em;
+  transition: transform 0.2s;
+}
+.accordion-item.active .accordion-toggle:after,
+.accordion-toggle.active:after {
+  transform: rotate(-180deg);
+}
+.accordion-content {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  background: #222;
+  color: #fff;
+  border-radius: 14px;
+  margin-top: 10px;
+  padding: 0 22px;
+  font-size: 0.98rem;
+  font-family: 'Inter', Arial, sans-serif;
+  border-top: none;
+  transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1), padding 0.2s;
+}
+.accordion-item.active .accordion-content,
+.accordion-content.active {
+  display: block;
+  padding: 16px 22px !important;
+  max-height: 400px !important;
+}
+
 
 .sidebar {
   background: transparent;
@@ -182,7 +346,7 @@ body {
     font-size: 13px;
     line-height: 1.4;
   }
-  .neon-button-main-urban {
+  .neon-button-main {
     font-size: 12px !important;
     padding: 0.7rem 1.2rem;
     border-radius: 4px !important;
@@ -226,6 +390,10 @@ h1, h2, h3 {
 
 h1 {
   display: none !important;
+}
+
+h1.program-title {
+  display: block !important;
 }
 
 #brella-widget {
@@ -732,14 +900,14 @@ img[data-testid="speaker-card-image"] {
 /* --- End Side Events Section Styles --- */
 
 /* --- Neon Button Main Urban --- */
-.neon-button-main-urban {
+.neon-button-main {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 17px 50px 17px 50px;
+    padding: 10px 22px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 16px !important;
+    font-size: 14px !important;
     text-transform: uppercase !important;
     line-height: 1.2;
     color: #F2f2f2;
@@ -754,9 +922,9 @@ img[data-testid="speaker-card-image"] {
     text-align: center;
     height: auto;
     width: auto;
-    max-width: 300px;
+    max-width: 180px;
 }
-.neon-button-main-urban:hover {
+.neon-button-main:hover {
     color: #fff;
     background: #FF0028;
     box-shadow: 0 0 20px rgba(255, 0, 40, 0.6),
@@ -765,11 +933,24 @@ img[data-testid="speaker-card-image"] {
     transform: translateY(-2px);
 }
 @media (max-width: 768px) {
-    .neon-button-main-urban {
-        font-size: 12px !important;
+    .neon-button-main {
+        font-size: 11px !important;
         border-radius: 4px !important;
-        line-height: 1.5em;
-        padding: 0.9rem 1.9rem;
+        line-height: 1.4em;
+        padding: 7px 13px;
+        max-width: 120px;
+    }
+}
+.neon-button-main-lg {
+    padding: 15px 36px !important;
+    font-size: 16px !important;
+    max-width: 250px !important;
+}
+@media (max-width: 768px) {
+    .neon-button-main-lg {
+        font-size: 13px !important;
+        padding: 11px 18px !important;
+        max-width: 170px !important;
     }
 }
 /* --- End Neon Button Main Urban --- */
@@ -839,23 +1020,25 @@ ul.main-paragraph {
   flex-direction: column;
   gap: 14px;
 }
-ul.main-paragraph li {
-  background: #181818;
-  color: #fff;
-  border-radius: 14px;
-  padding: 16px 22px;
+/* Accordion overrides: remove default li styles for accordion */
+ul.main-paragraph.accordion-list li {
+  background: none;
+  color: inherit;
+  border-radius: 0;
+  padding: 0;
   margin: 0;
-  font-size: 1rem;
-  font-family: 'Inter', Arial, sans-serif;
-  font-weight: 500;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  border: 1px solid #232323;
-  letter-spacing: 0.2px;
-  transition: background 0.2s;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  box-shadow: none;
+  border: none;
+  letter-spacing: inherit;
+  transition: none;
 }
-ul.main-paragraph li:hover {
-  background: #232323;
+ul.main-paragraph.accordion-list li:hover {
+  background: none;
 }
+
 
 
 /* --- Brella Widget Customizations --- */
